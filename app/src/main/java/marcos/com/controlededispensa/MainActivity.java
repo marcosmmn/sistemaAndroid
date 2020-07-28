@@ -1,10 +1,14 @@
 package marcos.com.controlededispensa;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,25 +24,34 @@ import java.util.concurrent.ScheduledExecutorService;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerCategoria;
-    private Button buttonLimpar;
+
     private EditText editTextNome, editTextMarca, editTextValidade, editTextQtd;
     private RadioGroup radioGroupUnid;
     private CheckBox checkBoxArmario, checkBoxGeladeira;
-    public static final String NOME = "NOME";
-    public static final String MARCA = "MARCA";
+    public static final String NOME     = "NOME";
+    public static final String MARCA    = "MARCA";
     public static final String VALIDADE = "VALIDADE";
-    public static final String QTD = "QTD";
-    public static final String UNID = "UNID";
-    public static final String CATEGORIA = "CATEGORIA";
-    public static final String ARMAZ = "ARMAZ";
+    public static final String QTD      = "QTD";
+    public static final String UNID     = "UNID";
+    public static final String CATEGORIA= "CATEGORIA";
+    public static final String ARMAZ    = "ARMAZ";
+
+    public static final String MODO    = "MODO";
+    public static final int    NOVO    = 1;
+    public  static final int   ALTERAR = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         spinnerCategoria = findViewById(R.id.spinnerCategoria);
-        buttonLimpar = findViewById(R.id.buttonLimpar);
+
         editTextNome = findViewById(R.id.editTextNome);
         editTextQtd = findViewById(R.id.editTextQtd);
         editTextMarca = findViewById(R.id.editTextMarca);
@@ -49,6 +62,28 @@ public class MainActivity extends AppCompatActivity {
 
         popularSpinner();
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.produto_opcoes,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuItemSalvar:
+
+                return true;
+            case R.id.menuItemLimpar:
+
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+
 
     public void popularSpinner() {
         ArrayList<String> lista = new ArrayList<>();
@@ -73,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void limpar(View view) {
+    public void limpar(MenuItem item) {
         editTextNome.setText(null);
         editTextMarca.setText(null);
         editTextValidade.setText(null);
@@ -90,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.campos_limpos, Toast.LENGTH_LONG).show();
     }
 
-    public void salvar(View view) {
+    public void salvar(MenuItem item) {
         String nome = editTextNome.getText().toString();
         String marca = editTextMarca.getText().toString();
         String validade = editTextValidade.getText().toString();

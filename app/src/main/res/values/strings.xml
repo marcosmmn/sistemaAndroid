@@ -67,4 +67,7 @@
     <string name="add">Adicionar</string>
     <string name="btn_sobre">Sobre</string>
     <string name="imagem">imagem</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
 </resources>

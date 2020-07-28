@@ -1,11 +1,16 @@
 package marcos.com.controlededispensa;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,7 +25,6 @@ public class ListaActivity extends AppCompatActivity {
     public static final int CODE = 1;
     private ArrayList<Produto> produtos;
     private ArrayAdapter<Produto> adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +47,37 @@ public class ListaActivity extends AppCompatActivity {
         popularLista();
     }
 
-    public void adicionar(View view){
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.principal_opcoes,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menuItemAdicionar:
+
+               return true;
+            case R.id.menuItemSobre:
+
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    public void adicionar(MenuItem item){
         Intent intent = new Intent(this,MainActivity.class);
 
         startActivityForResult(intent,CODE);
 
     }
 
-    public void acessarSobre(View view){
+    public void acessarSobre(MenuItem item){
         Intent intent = new Intent(this,ActivityAutoria.class);
 
         startActivity(intent);

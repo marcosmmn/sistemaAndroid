@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="@string/imagem"
-    tools:context=".ActivityAutoria">
+    tools:context=".ActivityAutoria"
+    android:background="@color/backgroundColor">
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +25,8 @@
         android:text="@string/autoria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textViewNome"
@@ -34,7 +36,8 @@
         android:text="@string/meu_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textView10"
@@ -46,7 +49,8 @@
         android:text="@string/aluno_do_curso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNome" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textViewCurso"
@@ -57,7 +61,8 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textView11"
@@ -67,7 +72,8 @@
         android:text="@string/email_p_contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurso" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurso"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textViewEmail"
@@ -77,7 +83,8 @@
         android:text="@string/email_contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textView14"
@@ -87,7 +94,8 @@
         android:text="@string/sobre_o_app"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
+        android:textColor="@color/textColor"/>
 
     <TextView
         android:id="@+id/textViewSobre"
@@ -98,7 +106,8 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        android:textColor="@color/textColor"/>
 
         <ImageView
             android:id="@+id/imageView3"

@@ -1,73 +1,84 @@
 <resources>
-    <string name="app_name">Controle de Dispensa</string>
-    <string name="nome_produto">Nome do Produto</string>
-    <string name="digite_produto">Digite aqui o nome do produto</string>
-    <string name="marca_prod">Marca</string>
-    <string name="digite_marca">Digite aqui a marca do produto</string>
-    <string name="validade">Validade</string>
-    <string name="digite_validade">Digite aqui a validade do produto</string>
-    <string name="quantidade">Quantidade</string>
-    <string name="unidade">Unidade</string>
-    <string name="unitario">Unidade(s)</string>
-    <string name="kilos">Quilo(s)</string>
-    <string name="categoria">Categoria</string>
-    <string name="armazenamento">Armazenamento</string>
-    <string name="armario">Armário</string>
-    <string name="geladeira">Geladeira</string>
-    <string name="salvar">Salvar</string>
-    <string name="limpar">Limpar</string>
-    <string name="litros">Litro(s)</string>
-    <string name="selecione_spinner">Selecione uma categoria</string>
-    <string name="salada">Salada</string>
-    <string name="carne">Carne</string>
-    <string name="tempero">Tempero</string>
-    <string name="peixe">Peixe</string>
-    <string name="farinha">Farinha</string>
-    <string name="massa">Massa</string>
-    <string name="bebidas">Bebidas</string>
-    <string name="enlatados">Enlatados</string>
-    <string name="frango">Frango</string>
-    <string name="porco">Porco</string>
-    <string name="graos">Grãos</string>
-    <string name="campos_limpos">Todos os campos foram limpos!</string>
-    <string name="guloseima">Guloseima</string>
-    <string name="o_produto">"O produto "</string>
-    <string name="com_validade">" com a validade "</string>
-    <string name="possui">" possui "</string>
-    <string name="armazenado">" armazenado(s)."</string>
-    <string name="camp_nome_vazio">Campo nome vazio</string>
-    <string name="camp_marca_vazio">Campo marca vazio</string>
-    <string name="camp_val_vazio">Campo validade vazio</string>
-    <string name="sem_qtd">Nenhuma quantidade inserida</string>
-    <string name="sem_unid">Nenhuma unidade selecionada</string>
-    <string name="sem_cat">Nenhuma categoria selecionada</string>
-    <string name="sem_arm">Nenhum tipo de armazenamento selecionado</string>
-    <string name="prod_cad">Produto cadastrado: \n</string>
-    <string name="toast_nome">\"Nome: \"</string>
-    <string name="toast_marca">\"\nMarca: \"</string>
-    <string name="toast_val">\"\nValidade: \"</string>
-    <string name="toast_qtd">\"\nQuantidade: \"</string>
-    <string name="toast_cat">\"\nCategoria: \"</string>
-    <string name="toast_arm">\"\nArmazenamento: \"</string>
-    <string name="autoria">Aplicativo feito por:</string>
-    <string name="meu_nome">Marcos Molitor Neto</string>
-    <string name="aluno_do_curso">Aluno do curso de:</string>
-    <string name="nome_curso">XVIII Curso de Especialização em Tecnologia Java (2019_02)</string>
-    <string name="email_p_contato">Email para contato:</string>
-    <string name="email_contato">marcos-molitor@hotmail.com</string>
-    <string name="sobre_o_app">Sobre o aplicativo:</string>
+    <string name="app_name">Food Dispensing Control</string>
+    <string name="nome_produto">Product Name</string>
+    <string name="digite_produto">" Enter product name here"</string>
+    <string name="marca_prod">Mark</string>
+    <string name="digite_marca">Enter the product mark here</string>
+    <string name="validade">Shelf Life</string>
+    <string name="digite_validade">" Enter the product's validity here"</string>
+    <string name="quantidade">Quantity</string>
+    <string name="unidade">Unity</string>
+    <string name="unitario">Unity</string>
+    <string name="kilos">Kilo</string>
+    <string name="categoria">Category</string>
+    <string name="armazenamento">Storage</string>
+    <string name="armario">" Kitchen Cabinet"</string>
+    <string name="geladeira">Refrigerator</string>
+    <string name="salvar">Save</string>
+    <string name="limpar">Clean</string>
+    <string name="litros">Liter</string>
+    <string name="selecione_spinner">Select a category</string>
+    <string name="salada">Salad</string>
+    <string name="carne">Meat</string>
+    <string name="tempero">Seasoning</string>
+    <string name="peixe">Fish</string>
+    <string name="farinha">Flour</string>
+    <string name="massa">Pasta</string>
+    <string name="bebidas">Drinks</string>
+    <string name="enlatados">Canned</string>
+    <string name="frango">Chicken</string>
+    <string name="porco">Pork</string>
+    <string name="graos">Grains</string>
+    <string name="campos_limpos">" All fields were cleaned!"</string>
+    <string name="guloseima">Dainty</string>
+    <string name="o_produto">The product</string>
+    <string name="com_validade">" with the validity "</string>
+    <string name="possui">" it has"</string>
+    <string name="armazenado">" stored."</string>
+    <string name="camp_nome_vazio">"Empty name field "</string>
+    <string name="camp_marca_vazio">"Empty mark field "</string>
+    <string name="camp_val_vazio">"Empty Shelf Life field "</string>
+    <string name="sem_qtd">"No quantity entered "</string>
+    <string name="sem_unid">"No units selected "</string>
+    <string name="sem_cat">"No categories selected "</string>
+    <string name="sem_arm">"No storage type selected "</string>
+    <string name="prod_cad">Registered Product: \n</string>
+    <string name="toast_nome">\"Name: \"</string>
+    <string name="toast_marca">\"\nMark: \"</string>
+    <string name="toast_val">\"\nShelf Life: \"</string>
+    <string name="toast_qtd">\"\nQuantity: \"</string>
+    <string name="toast_cat">\"\nCategory: \"</string>
+    <string name="toast_arm">\"\nStorage: \"</string>
+    <string name="autoria">Application made by :</string>
+    <string name="meu_nome" translatable="false">Marcos Molitor Neto</string>
+    <string name="aluno_do_curso">Student of the :</string>
+    <string name="nome_curso">" XVIII Specialization Course in Java Technology (2019_02)"</string>
+    <string name="email_p_contato">Contact email:</string>
+    <string name="email_contato" translatable="false">marcos-molitor@hotmail.com</string>
+    <string name="sobre_o_app">About the app:</string>
     <string name="texto_sobre">
-        Este aplicativo tem por objetivo te ajudar a ter o controle de estoque de alimentos em sua
-        casa, pois a cada compra ou utilização dos mantimentos que realizar, você atualizará sua lista de itens
-        de modo que possa consultar o que tem em seu armário ou geladeira, mesmo estando longe deles,
-        isso também facilitará na hora das compras, com a lista do que você tem em mãos, pode realizar
-        a compra do que precisa, ou até mesmo planejar uma refeição com o que tem em seu armario
-        mesmo não estando em casa.
+        This application aims to help you have control of food stocks in your
+        home, because with each purchase or use of groceries you make, you will update your list of items
+        so you can see what\'s in your closet or refrigerator, even when you\'re away from them,
+        this will also make it easier when shopping, with the list of what you have in hand, you can do
+        buying what you need, or even planning a meal with what you have in your closet
+        even if you\'re not at home.
     </string>
-    <string name="add">Adicionar</string>
-    <string name="btn_sobre">Sobre</string>
-    <string name="imagem">imagem</string>
-    <string name="adicionar">Adicionar</string>
-    <string name="editar">Editar</string>
-    <string name="excluir">Excluir</string>
+    <string name="add">Add</string>
+    <string name="btn_sobre">About</string>
+    <string name="imagem">image</string>
+    <string name="adicionar">Add</string>
+    <string name="editar">Edit</string>
+    <string name="excluir">Delete</string>
+    <string name="modoNot">Night Mode</string>
+    <string name="modoClaro">Day Mode</string>
+    <string name="novo_produto">New Product</string>
+    <string name="altera_produto">Alter Product</string>
+    <string name="aviso">Aviso</string>
+    <string name="ok">OK</string>
+    <string name="confirmacao">Confirmação</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
+    <string name="nenhum_cat">Nenhuma categoria cadastrada</string>
+    <string name="deseja_realmente_apagar">"Deseja relamente apagar "</string>
 </resources>

@@ -1,44 +1,68 @@
 package marcos.com.controlededispensa;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.concurrent.ScheduledExecutorService;
+import java.util.List;
+
+import marcos.com.controlededispensa.modelo.Categoria;
+import marcos.com.controlededispensa.modelo.ItensAdapter;
+import marcos.com.controlededispensa.modelo.Produto;
+import marcos.com.controlededispensa.persistencia.ProdutosDatabase;
 
 public class MainActivity extends AppCompatActivity {
-
+    //objetos do front
     private Spinner spinnerCategoria;
-
     private EditText editTextNome, editTextMarca, editTextValidade, editTextQtd;
     private RadioGroup radioGroupUnid;
     private CheckBox checkBoxArmario, checkBoxGeladeira;
-    public static final String NOME     = "NOME";
-    public static final String MARCA    = "MARCA";
-    public static final String VALIDADE = "VALIDADE";
-    public static final String QTD      = "QTD";
-    public static final String UNID     = "UNID";
-    public static final String CATEGORIA= "CATEGORIA";
-    public static final String ARMAZ    = "ARMAZ";
 
+    //constante de referencia do objeto produto
+    public static final String ID    = "ID";
+
+    //constantes para definir os modos que estão sendo operados
     public static final String MODO    = "MODO";
     public static final int    NOVO    = 1;
     public  static final int   ALTERAR = 2;
+    private int modo;
+    private Produto produto;
+
+    private List<Categoria> listaCategoria;
+
+    public static  void novoProduto(Activity activity, int requestCode){
+        Intent intent = new Intent(activity,MainActivity.class);
+
+        intent.putExtra(MODO,NOVO);
+
+        activity.startActivityForResult(intent, requestCode);
+    }
+
+    public static void alterarProduto(Activity activity, int requestCode, Produto produto){
+        Intent intent = new Intent(activity, MainActivity.class);
+
+        intent.putExtra(MODO,ALTERAR);
+        intent.putExtra(ID,produto.getId());
+
+
+        activity.startActivityForResult(intent,requestCode);
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +84,54 @@ public class MainActivity extends AppCompatActivity {
         checkBoxGeladeira = findViewById(R.id.checkBoxGeladeira);
         checkBoxArmario = findViewById(R.id.checkBoxArmario);
 
+        Intent intent = getIntent();
+        final Bundle bundle = intent.getExtras();
+
+        modo = bundle.getInt(MODO, NOVO);
+
         popularSpinner();
+
+        if(modo == ALTERAR){
+            setTitle(getString(R.string.altera_produto));
+
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    int id = bundle.getInt(ID);
+
+                    ProdutosDatabase database = ProdutosDatabase.getDatabase(MainActivity.this);
+
+                    produto = database.produtoDao().queryForId(id);
+
+                    MainActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            editTextNome.setText(produto.getNome());
+                            editTextMarca.setText(produto.getMarca());
+                            editTextValidade.setText(produto.getValidade());
+                            editTextQtd.setText(String.valueOf(produto.getQtd()));
+                            retornaUnidade();
+                            retornaArmaz();
+
+                            int posicao = posicaoTipo(produto.getCatId());
+                            spinnerCategoria.setSelection(posicao);
+                        }
+                    });
+                }
+            });
+
+
+            }else{
+
+                setTitle(R.string.novo_produto);
+
+                produto = new Produto("");
+
+
+            }
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,15 +139,52 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    public void retornaArmaz(){
+        if(produto.getArmazenamento().equals("Geladeira")){
+            checkBoxGeladeira.setChecked(true);
+        }else if(produto.getArmazenamento().equals("Armário")){
+            checkBoxArmario.setChecked(true);
+        }else if(produto.getArmazenamento().equals("Armário e Geladeira")){
+            checkBoxArmario.setChecked(true);
+            checkBoxGeladeira.setChecked(true);
+        }
+    }
+
+    private int posicaoTipo(int tipoId){
+
+        for (int pos = 0; pos < listaCategoria.size(); pos++){
+
+            Categoria c = listaCategoria.get(pos);
+
+            if (c.getId() == tipoId){
+                return pos;
+            }
+        }
+
+        return -1;
+    }
+
+    public void retornaUnidade(){
+        if(produto.getUnidade().equals("Unidade(s)")){
+            radioGroupUnid.check(R.id.radioButtonUnit);
+        }else if (produto.getUnidade().equals("Quilo(s)")){
+            radioGroupUnid.check(R.id.radioButtonKilos);
+        }else if (produto.getUnidade().equals("Litro(s)")){
+            radioGroupUnid.check(R.id.radioButtonLitros);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menuItemSalvar:
-
+                salvar();
                 return true;
             case R.id.menuItemLimpar:
-
                 return  true;
+            case android.R.id.home:
+                cancelar();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -86,25 +194,36 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void popularSpinner() {
-        ArrayList<String> lista = new ArrayList<>();
-        lista.add(getString(R.string.selecione_spinner));
-        lista.add(getString(R.string.salada));
-        lista.add(getString(R.string.carne));
-        lista.add(getString(R.string.tempero));
-        lista.add(getString(R.string.peixe));
-        lista.add(getString(R.string.farinha));
-        lista.add(getString(R.string.massa));
-        lista.add(getString(R.string.bebidas));
-        lista.add(getString(R.string.enlatados));
-        lista.add(getString(R.string.frango));
-        lista.add(getString(R.string.porco));
-        lista.add(getString(R.string.graos));
-        lista.add(getString(R.string.guloseima));
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                ProdutosDatabase database = ProdutosDatabase.getDatabase(MainActivity.this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, lista);
+                listaCategoria = database.categoriaDao().queryAll();
 
-        spinnerCategoria.setAdapter(adapter);
+                MainActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        TypedArray icones = getResources().obtainTypedArray(R.array.imagens);
+
+                        ArrayList<Categoria> cats = new ArrayList();
+
+                        for (int cont = 0; cont < listaCategoria.size(); cont++){
+                            Categoria catt = new Categoria();
+                            catt.setId(listaCategoria.get(cont).getId());
+                            catt.setDescricao(listaCategoria.get(cont).getDescricao());
+                            catt.setIcone(icones.getDrawable(cont));
+                            cats.add(catt);
+                        }
+
+                        ItensAdapter itensAdapter = new ItensAdapter(MainActivity.this, cats);
+
+                        spinnerCategoria.setAdapter(itensAdapter);
+                    }
+                });
+            }
+        });
 
     }
 
@@ -113,25 +232,21 @@ public class MainActivity extends AppCompatActivity {
         editTextMarca.setText(null);
         editTextValidade.setText(null);
         editTextQtd.setText(null);
-
         checkBoxArmario.setChecked(false);
         checkBoxGeladeira.setChecked(false);
-
         radioGroupUnid.clearCheck();
-
         spinnerCategoria.setSelection(0);
-
         editTextNome.requestFocus();
         Toast.makeText(this, R.string.campos_limpos, Toast.LENGTH_LONG).show();
     }
 
-    public void salvar(MenuItem item) {
+    public void salvar() {
         String nome = editTextNome.getText().toString();
         String marca = editTextMarca.getText().toString();
         String validade = editTextValidade.getText().toString();
         String qtd = editTextQtd.getText().toString();
         String unid = verificaRadio(radioGroupUnid);
-        String categoria = verificaSpinner(spinnerCategoria);
+       // String categoria = verificaSpinner(spinnerCategoria);
         String armaz = verificaCheck(checkBoxArmario, checkBoxGeladeira);
 
         if (nome == null || nome.trim().isEmpty()) {
@@ -149,9 +264,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (unid == null || unid.trim().isEmpty()) {
             Toast.makeText(this, R.string.sem_unid, Toast.LENGTH_LONG).show();
 
-        } else if (categoria == null || categoria.trim().isEmpty()) {
-            Toast.makeText(this, R.string.sem_cat, Toast.LENGTH_LONG).show();
-
         } else if (armaz == null || armaz.trim().isEmpty()) {
             Toast.makeText(this, R.string.sem_arm, Toast.LENGTH_LONG).show();
 
@@ -159,31 +271,54 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, getString(R.string.prod_cad) + getString(R.string.toast_nome) + nome + getString(R.string.toast_marca) + marca
                     + getString(R.string.toast_val) + validade + getString(R.string.toast_qtd) + qtd + " " + unid
-                    + getString(R.string.toast_cat) + categoria + getString(R.string.toast_arm) + armaz, Toast.LENGTH_LONG).show();
+                     + getString(R.string.toast_arm) + armaz, Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent();
+            produto.setNome(nome);
+            produto.setMarca(marca);
+            produto.setValidade(validade);
+            produto.setUnidade(unid);
+            produto.setQtd(Double.parseDouble(qtd));
 
-            intent.putExtra(NOME,nome);
-            intent.putExtra(MARCA,marca);
-            intent.putExtra(VALIDADE,validade);
-            intent.putExtra(QTD,qtd);
-            intent.putExtra(UNID,unid);
-            intent.putExtra(CATEGORIA,categoria);
-            intent.putExtra(ARMAZ,armaz);
 
-            setResult(Activity.RESULT_OK,intent);
+            Categoria cat = (Categoria) spinnerCategoria.getSelectedItem();
+            if (cat != null){
+                produto.setCatId(cat.getId());
+            }
 
-            finish();
+            produto.setArmazenamento(armaz);
+
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    ProdutosDatabase database = ProdutosDatabase.getDatabase(MainActivity.this);
+
+                    if (modo == NOVO) {
+
+                        database.produtoDao().insert(produto);
+
+                    } else {
+
+                        database.produtoDao().update(produto);
+                    }
+
+                    setResult(Activity.RESULT_OK);
+                    finish();
+                }
+            });
         }
 
 
 
     }
 
+    private void cancelar(){
+        setResult(Activity.RESULT_CANCELED);
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
-        setResult(Activity.RESULT_CANCELED);
-        super.onBackPressed();
+        cancelar();
     }
 
     public String verificaCheck(CheckBox um, CheckBox dois) {
@@ -211,18 +346,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return "";
         }
-    }
-
-    public String verificaSpinner(Spinner spinner) {
-        String cat = (String) spinner.getSelectedItem();
-        String mensagem = "";
-        if (cat.equals(getString(R.string.selecione_spinner))) {
-            mensagem = "";
-        } else if (cat != null) {
-
-            mensagem = cat;
-        }
-        return mensagem;
     }
 
 }

@@ -66,17 +66,25 @@
     </string-array>
 
     <string-array name="cat">
-        <item>Grãos</item>
-        <item>Carne</item>
-        <item>Grãos</item>
-        <item>Guloseima</item>
-        <item>Grãos</item>
-        <item>Bebidas</item>
-        <item>Tempero</item>
-        <item>Tempero</item>
-        <item>Farinha</item>
-        <item>Farinha</item>
+        <item>@string/bebidas</item>
+        <item>@string/carne</item>
+        <item>@string/graos</item>
+        <item>@string/farinha</item>
+        <item>@string/guloseima</item>
+        <item>@string/salada</item>
+        <item>@string/tempero</item>
     </string-array>
+
+    <integer-array name="imagens">
+        <item>@drawable/bebidas</item>
+        <item>@drawable/carne</item>
+        <item>@drawable/farinha</item>
+        <item>@drawable/graos</item>
+        <item>@drawable/guloseima</item>
+        <item>@drawable/salada</item>
+        <item>@drawable/tempero</item>
+
+    </integer-array>
 
     <string-array name="arm">
         <item>Armario</item>

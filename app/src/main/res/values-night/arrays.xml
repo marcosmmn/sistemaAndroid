@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="prods">
+        <item>Arroz</item>
+        <item>Acem</item>
+        <item>Feijão</item>
+        <item>Bolacha Recheada</item>
+        <item>Café</item>
+        <item>Leite</item>
+        <item>Óleo</item>
+        <item>Vinagre</item>
+        <item>Açucar</item>
+        <item>Farinha de trigo</item>
+    </string-array>
+
+    <string-array name="marca">
+        <item>Rosalito</item>
+        <item>Friboi</item>
+        <item>Pateko</item>
+        <item>Trakinas</item>
+        <item>Mellita</item>
+        <item>Italac</item>
+        <item>Soya</item>
+        <item>Castelo</item>
+        <item>União</item>
+        <item>Anaconda</item>
+    </string-array>
+
+    <string-array name="validade">
+        <item>25/06/2021</item>
+        <item>02/05/2021</item>
+        <item>07/08/2020</item>
+        <item>28/02/2021</item>
+        <item>06/09/2021</item>
+        <item>03/01/2021</item>
+        <item>24/05/2021</item>
+        <item>27/11/2021</item>
+        <item>01/01/2021</item>
+        <item>09/06/2021</item>
+    </string-array>
+
+    <integer-array name="qtds">
+        <item>1</item>
+        <item>4</item>
+        <item>7</item>
+        <item>3</item>
+        <item>2</item>
+        <item>9</item>
+        <item>13</item>
+        <item>2</item>
+        <item>1</item>
+        <item>4</item>
+    </integer-array>
+
+    <string-array name="unid">
+        <item>Unidade(s)</item>
+        <item>Quilo(s)</item>
+        <item>Unidade(s)</item>
+        <item>Unidade(s)</item>
+        <item>Unidade(s)</item>
+        <item>Litro(s)</item>
+        <item>Litro(s)</item>
+        <item>Litro(s)</item>
+        <item>Unidade(s)</item>
+        <item>Unidade(s)</item>
+    </string-array>
+
+    <string-array name="cat">
+        <item>@string/bebidas</item>
+        <item>@string/carne</item>
+        <item>@string/graos</item>
+        <item>@string/farinha</item>
+        <item>@string/guloseima</item>
+        <item>@string/salada</item>
+        <item>@string/tempero</item>
+    </string-array>
+
+    <integer-array name="imagens">
+        <item>@drawable/bebidas</item>
+        <item>@drawable/carne</item>
+        <item>@drawable/farinha</item>
+        <item>@drawable/graos</item>
+        <item>@drawable/guloseima</item>
+        <item>@drawable/salada</item>
+        <item>@drawable/tempero</item>
+    </integer-array>
+
+    <string-array name="arm">
+        <item>Armario</item>
+        <item>Geladeira</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+        <item>Armario</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Controle de Dispensa</string>
+    <string name="nome_produto">Nome do Produto</string>
+    <string name="digite_produto">Digite aqui o nome do produto</string>
+    <string name="marca_prod">Marca</string>
+    <string name="digite_marca">Digite aqui a marca do produto</string>
+    <string name="validade">Validade</string>
+    <string name="digite_validade">Digite aqui a validade do produto</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="unidade">Unidade</string>
+    <string name="unitario">Unidade(s)</string>
+    <string name="kilos">Quilo(s)</string>
+    <string name="categoria">Categoria</string>
+    <string name="armazenamento">Armazenamento</string>
+    <string name="armario">Armário</string>
+    <string name="geladeira">Geladeira</string>
+    <string name="salvar">Salvar</string>
+    <string name="limpar">Limpar</string>
+    <string name="litros">Litro(s)</string>
+    <string name="selecione_spinner">Selecione uma categoria</string>
+    <string name="salada">Salada</string>
+    <string name="carne">Carne</string>
+    <string name="tempero">Tempero</string>
+    <string name="peixe">Peixe</string>
+    <string name="farinha">Farinha</string>
+    <string name="massa">Massa</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="enlatados">Enlatados</string>
+    <string name="frango">Frango</string>
+    <string name="porco">Porco</string>
+    <string name="graos">Grãos</string>
+    <string name="campos_limpos">Todos os campos foram limpos!</string>
+    <string name="guloseima">Guloseima</string>
+    <string name="o_produto">"O produto "</string>
+    <string name="com_validade">" com a validade "</string>
+    <string name="possui">" possui "</string>
+    <string name="armazenado">" armazenado(s)."</string>
+    <string name="camp_nome_vazio">Campo nome vazio</string>
+    <string name="camp_marca_vazio">Campo marca vazio</string>
+    <string name="camp_val_vazio">Campo validade vazio</string>
+    <string name="sem_qtd">Nenhuma quantidade inserida</string>
+    <string name="sem_unid">Nenhuma unidade selecionada</string>
+    <string name="sem_cat">Nenhuma categoria selecionada</string>
+    <string name="sem_arm">Nenhum tipo de armazenamento selecionado</string>
+    <string name="prod_cad">Produto cadastrado: \n</string>
+    <string name="toast_nome">\"Nome: \"</string>
+    <string name="toast_marca">\"\nMarca: \"</string>
+    <string name="toast_val">\"\nValidade: \"</string>
+    <string name="toast_qtd">\"\nQuantidade: \"</string>
+    <string name="toast_cat">\"\nCategoria: \"</string>
+    <string name="toast_arm">\"\nArmazenamento: \"</string>
+    <string name="autoria">Aplicativo feito por:</string>
+    <string name="meu_nome">Marcos Molitor Neto</string>
+    <string name="aluno_do_curso">Aluno do curso de:</string>
+    <string name="nome_curso">XVIII Curso de Especialização em Tecnologia Java (2019_02)</string>
+    <string name="email_p_contato">Email para contato:</string>
+    <string name="email_contato">marcos-molitor@hotmail.com</string>
+    <string name="sobre_o_app">Sobre o aplicativo:</string>
+    <string name="texto_sobre">
+        Este aplicativo tem por objetivo te ajudar a ter o controle de estoque de alimentos em sua
+        casa, pois a cada compra ou utilização dos mantimentos que realizar, você atualizará sua lista de itens
+        de modo que possa consultar o que tem em seu armário ou geladeira, mesmo estando longe deles,
+        isso também facilitará na hora das compras, com a lista do que você tem em mãos, pode realizar
+        a compra do que precisa, ou até mesmo planejar uma refeição com o que tem em seu armario
+        mesmo não estando em casa.
+    </string>
+    <string name="add">Adicionar</string>
+    <string name="btn_sobre">Sobre</string>
+    <string name="imagem">imagem</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="modoNot">Modo Noturno</string>
+    <string name="modoClaro">Modo Claro</string>
+    <string name="novo_produto">Novo Produto</string>
+    <string name="altera_produto">Altera Produto</string>
+</resources>

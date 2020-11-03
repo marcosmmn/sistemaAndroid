@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Food Dispensing Control</string>
+    <string name="nome_produto">Product Name</string>
+    <string name="digite_produto">" Enter product name here"</string>
+    <string name="marca_prod">Mark</string>
+    <string name="digite_marca">Enter the product mark here</string>
+    <string name="validade">Shelf Life</string>
+    <string name="digite_validade">" Enter the product's validity here"</string>
+    <string name="quantidade">Quantity</string>
+    <string name="unidade">Unity</string>
+    <string name="unitario">Unity</string>
+    <string name="kilos">Kilo</string>
+    <string name="categoria">Category</string>
+    <string name="armazenamento">Storage</string>
+    <string name="armario">" Kitchen Cabinet"</string>
+    <string name="geladeira">Refrigerator</string>
+    <string name="salvar">Save</string>
+    <string name="limpar">Clean</string>
+    <string name="litros">Liter</string>
+    <string name="selecione_spinner">Select a category</string>
+    <string name="salada">Salad</string>
+    <string name="carne">Meat</string>
+    <string name="tempero">Seasoning</string>
+    <string name="peixe">Fish</string>
+    <string name="farinha">Flour</string>
+    <string name="massa">Pasta</string>
+    <string name="bebidas">Drinks</string>
+    <string name="enlatados">Canned</string>
+    <string name="frango">Chicken</string>
+    <string name="porco">Pork</string>
+    <string name="graos">Grains</string>
+    <string name="campos_limpos">" All fields were cleaned!"</string>
+    <string name="guloseima">Dainty</string>
+    <string name="o_produto">The product</string>
+    <string name="com_validade">" with the validity "</string>
+    <string name="possui">" it has"</string>
+    <string name="armazenado">" stored."</string>
+    <string name="camp_nome_vazio">"Empty name field "</string>
+    <string name="camp_marca_vazio">"Empty mark field "</string>
+    <string name="camp_val_vazio">"Empty Shelf Life field "</string>
+    <string name="sem_qtd">"No quantity entered "</string>
+    <string name="sem_unid">"No units selected "</string>
+    <string name="sem_cat">"No categories selected "</string>
+    <string name="sem_arm">"No storage type selected "</string>
+    <string name="prod_cad">Registered Product:\n</string>
+    <string name="toast_nome">\"Name: \"</string>
+    <string name="toast_marca">\"\nMark: \"</string>
+    <string name="toast_val">\"\nShelf Life: \"</string>
+    <string name="toast_qtd">\"\nQuantity: \"</string>
+    <string name="toast_cat">\"\nCategory: \"</string>
+    <string name="toast_arm">\"\nStorage: \"</string>
+    <string name="autoria">Application made by :</string>
+    <string name="meu_nome" translatable="false">Marcos Molitor Neto</string>
+    <string name="aluno_do_curso">Student of the :</string>
+    <string name="nome_curso">" XVIII Specialization Course in Java Technology (2019_02)"</string>
+    <string name="email_p_contato">Contact email:</string>
+    <string name="email_contato" translatable="false">marcos-molitor@hotmail.com</string>
+    <string name="sobre_o_app">About the app:</string>
+    <string name="texto_sobre">
+        This application aims to help you have control of food stocks in your
+        home, because with each purchase or use of groceries you make, you will update your list of items
+        so you can see what\'s in your closet or refrigerator, even when you\'re away from them,
+        this will also make it easier when shopping, with the list of what you have in hand, you can do
+        buying what you need, or even planning a meal with what you have in your closet
+        even if you\'re not at home.
+    </string>
+    <string name="add">Add</string>
+    <string name="btn_sobre">About</string>
+    <string name="imagem">image</string>
+    <string name="adicionar">Add</string>
+    <string name="editar">Edit</string>
+    <string name="excluir">Delete</string>
+    <string name="modoNot">Night Mode</string>
+    <string name="modoClaro">Day Mode</string>
+    <string name="novo_produto">New Product</string>
+    <string name="altera_produto">Edit Product</string>
+</resources>
